@@ -25,6 +25,31 @@ type Date struct {
 	time.Time
 }
 
+// Scan reads the value from db
+func (t *Date) Scan(value interface{}) error {
+	switch x := value.(type) {
+	case time.Time:
+		*t = Date{Time: x}
+	case nil:
+		return nil
+	default:
+		return fmt.Errorf("schema: cannot scan type %T into schema.NullDate: %v", value, value)
+	}
+
+	return nil
+}
+
+// Value returns the DB value
+func (t Date) Value() (driver.Value, error) {
+	null := Date{}
+
+	if t == null {
+		return nil, nil
+	}
+
+	return t.Time, nil
+}
+
 // MarshalText implements the encoding.TextMarshaler interface.
 // The time is formatted in RFC 3339 format, with sub-second precision added if present.
 func (t Date) MarshalText() ([]byte, error) {
@@ -178,7 +203,7 @@ func (t *NullDate) Scan(value interface{}) error {
 		t.Valid = false
 		return nil
 	default:
-		err = fmt.Errorf("null: cannot scan type %T into null.Time: %v", value, value)
+		err = fmt.Errorf("schema: cannot scan type %T into schema.NullDate: %v", value, value)
 	}
 	t.Valid = err == nil
 	return err
