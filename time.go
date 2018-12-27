@@ -5,6 +5,7 @@ import (
 	"database/sql/driver"
 	"errors"
 	"fmt"
+	"math"
 	"time"
 
 	"github.com/volatiletech/null"
@@ -13,6 +14,10 @@ import (
 var (
 	// DateTimeFormat represents the default format of the time
 	DateTimeFormat = "20060102"
+	// TimeNegativeInfinity represents the negative infinity time
+	TimeNegativeInfinity = time.Date(math.MinInt32, time.January, 1, 0, 0, 0, 0, time.UTC)
+	// TimePositiveInfinity represents the positive infinity time
+	TimePositiveInfinity = time.Date(math.MaxInt32, time.December, 31, 23, 59, 59, 1e9-1, time.UTC)
 )
 
 // A Date represents an instant in time with nanosecond precision.
