@@ -1,6 +1,8 @@
 package schema
 
 import (
+	"github.com/creasty/defaults"
+	"github.com/jinzhu/copier"
 	"github.com/volatiletech/null"
 )
 
@@ -258,3 +260,13 @@ var (
 	// NullTimeFromPtr creates a new Int that be null if f is nil.
 	NullTimeFromPtr = null.TimeFromPtr
 )
+
+// SetDefaults sets the defaults for given struct
+func SetDefaults(obj interface{}) error {
+	return defaults.Set(obj)
+}
+
+// Set sets the fields for given struct
+func Set(obj, src interface{}) error {
+	return copier.Copy(obj, src)
+}
