@@ -50,6 +50,11 @@ var (
 	UUIDFromStringOrNil = uuid.FromStringOrNil
 )
 
+// NewUUID creates a UUID
+func NewUUID() UUID {
+	return uuid.Must(uuid.NewV4())
+}
+
 // NewNullUUID creates a new nullable uuid
 func NewNullUUID(uuid UUID, valid bool) NullUUID {
 	return NullUUID{
