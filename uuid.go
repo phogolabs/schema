@@ -15,9 +15,6 @@ var (
 	// NewUUIDV1 returns a UUID based on the current timestamp and MAC address.
 	NewUUIDV1 = uuid.NewV1
 
-	// NewUUIDV2 returns a DCE Security UUID based on the POSIX UID/GID.
-	NewUUIDV2 = uuid.NewV2
-
 	// NewUUIDV3 returns a UUID based on the MD5 hash of the namespace UUID and name.
 	NewUUIDV3 = uuid.NewV3
 
