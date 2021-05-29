@@ -7,6 +7,7 @@ require (
 	github.com/friendsofgo/errors v0.9.2 // indirect
 	github.com/gofrs/uuid v4.0.0+incompatible
 	github.com/jinzhu/copier v0.3.0
+	github.com/leodido/go-urn v1.2.1
 	github.com/volatiletech/inflect v0.0.1 // indirect
 	github.com/volatiletech/null v8.0.0+incompatible
 	github.com/volatiletech/sqlboiler v3.7.1+incompatible // indirect
