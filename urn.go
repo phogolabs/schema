@@ -48,6 +48,16 @@ func (u *URN) String() string {
 	return u.value.String()
 }
 
+// Namespace returns the namespace
+func (u *URN) Namespace() string {
+	return u.value.ID
+}
+
+// Key returns the namespace key
+func (u *URN) Key() string {
+	return u.value.SS
+}
+
 // Value implements the driver.Valuer interface.
 func (u *URN) Value() (driver.Value, error) {
 	return u.String(), nil
