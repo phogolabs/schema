@@ -14,11 +14,13 @@ type URN struct {
 
 // NewURN creates a new urn
 func NewURN(namespace, key string) *URN {
+	value := &urn.URN{
+		ID: namespace,
+		SS: key,
+	}
+
 	return &URN{
-		value: &urn.URN{
-			ID: namespace,
-			SS: key,
-		},
+		value: value.Normalize(),
 	}
 }
 
