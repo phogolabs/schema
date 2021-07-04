@@ -14,14 +14,14 @@ type URN struct {
 
 // NewURN creates a new urn
 func NewURN(namespace, key string) *URN {
-	value := []byte("urn:" + namespace + ":" + key)
+	input := []byte("urn:" + namespace + ":" + key)
 	// parse the value
-	key, err := urn.NewMachine().Parse(value)
+	value, err := urn.NewMachine().Parse(input)
 	if err != nil {
 		panic(err)
 	}
 
-	return &URN{value: key}
+	return &URN{value: value}
 }
 
 // URNFromString parses a URN from string
