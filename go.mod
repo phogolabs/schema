@@ -6,8 +6,9 @@ require (
 	github.com/creasty/defaults v1.5.1
 	github.com/friendsofgo/errors v0.9.2 // indirect
 	github.com/gofrs/uuid v4.0.0+incompatible
-	github.com/jinzhu/copier v0.3.0
+	github.com/jinzhu/copier v0.3.2
 	github.com/leodido/go-urn v1.2.1
+	github.com/rs/xid v1.3.0 // indirect
 	github.com/volatiletech/inflect v0.0.1 // indirect
 	github.com/volatiletech/null v8.0.0+incompatible
 	github.com/volatiletech/sqlboiler v3.7.1+incompatible // indirect
